@@ -1,0 +1,25 @@
+<div class="bff-container">
+  <h2>BFF Message Control</h2>
+
+  <div class="input-group">
+    <input
+      [(ngModel)]="messageInput"
+      placeholder="Deine Nachricht..."
+      class="styled-input"
+    />
+    <button (click)="postMessage()" class="btn btn-primary">Senden (POST)</button>
+    <button (click)="getMessages()" class="btn btn-secondary">Laden (GET)</button>
+  </div>
+
+  <p class="status">{{ statusMessage }}</p>
+
+  <div class="message-list" if="responseMessages.length > 0">
+    <h3>Empfangene Nachrichten:</h3>
+    <ul>
+      @for( msg of responseMessages(); track responseMessages()) {
+        <li>{{ msg.message }}</li>
+      }
+
+    </ul>
+  </div>
+</div>
